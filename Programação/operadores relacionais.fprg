@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Qintess"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-12-08 05:13:36 "/>
+        <attribute name="created" value="UWludGVzcztDRU5XMTBOMDE0ODQwOzIwMjAtMTItMDg7IjA1OjA5OjA0ICI7MjcxMg=="/>
+        <attribute name="edited" value="UWludGVzcztDRU5XMTBOMDE0ODQwOzIwMjAtMTItMDg7IjA1OjEzOjM2ICI7MTsyODIw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, c" type="Integer" array="False" size=""/>
+            <assign variable="a" expression="1"/>
+            <assign variable="b" expression="1"/>
+            <assign variable="c" expression="3"/>
+            <output expression="a==b" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
