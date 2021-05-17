@@ -1,0 +1,3 @@
+#script de backup = bkp.sh
+echo “Iniciando Script de Backup”
+tar –cvzf bkp.tar.gz *.txt
