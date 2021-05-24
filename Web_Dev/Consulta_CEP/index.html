@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+<title>Webservice CEP e IBGE gratuito</title>
+<meta charset="utf-8"/>
+<meta name="keywords" content="webservice, gratuito, gratis, cep, ibge, gia, ddd, siafi, json, xml, query, piped, endereco, busca cep, correios, pesquisa cep, ajax, serviço"/>
+<meta name="description" content="Webservice gratuito para pesquisa de endereço via CEP, suporta Ajax e retorno no formato JSON, XML, PIPED ou QUERY String."/>
+<meta name="rating" content="General"/>
+<meta name="revisit-after" content="7"/>
+<meta name="google-site-verification" content="UcBPI0QtVFtvB4gxAwjk8ncJuFI5Un5AozPW5yjiNiM"/>
+<link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'/>
+<link href="body.css" rel="stylesheet" type="text/css" media="screen"/>
+<style type="text/css">input{margin-bottom:10px}</style>
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link rel="dns-prefetch" href="//code.jquery.com"><link rel="dns-prefetch" href="//www.paypalobjects.com"></head>
+<body>
+<div id="topo">
+<div class="titulo1">
+</div>
+<div class="titulo2">
+Consulte CEPs de todo o Brasil
+</div>
+</div>
+<div id="barra"></div>
+<div id="conteudo">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>$(document).ready(function(){function limpa_formulário_cep(){$("#rua").val("");$("#bairro").val("");$("#cidade").val("");$("#uf").val("");$("#ibge").val("");}$("#cep").blur(function(){var cep=$(this).val().replace(/\D/g,'');if(cep!=""){var validacep=/^[0-9]{8}$/;if(validacep.test(cep)){$("#rua").val("...");$("#bairro").val("...");$("#cidade").val("...");$("#uf").val("...");$("#ibge").val("...");$.getJSON("https://viacep.com.br/ws/"+cep+"/json/?callback=?",function(dados){if(!("erro"in dados)){$("#rua").val(dados.logradouro);$("#bairro").val(dados.bairro);$("#cidade").val(dados.localidade);$("#uf").val(dados.uf);$("#ibge").val(dados.ibge);}else{limpa_formulário_cep();alert("CEP não encontrado.");}});}else{limpa_formulário_cep();alert("Formato de CEP inválido.");}}else{limpa_formulário_cep();}});});</script>
+<h3>Informe o CEP</h3>
+<p>Digite o CEP e ao sair o campo o endereço será completado.
+Pode utilizar a tecla TAB após digitar o CEP.</p>
+<form id="formulario-contato" method="get" action="#">
+<label>Cep:
+<input name="cep" type="text" id="cep" value="" size="10" maxlength="9"/></label><br/>
+<label>Rua:
+<input name="rua" type="text" id="rua" size="60"/></label><br/>
+<label>Bairro:
+<input name="bairro" type="text" id="bairro" size="40"/></label><br/>
+<label>Cidade:
+<input name="cidade" type="text" id="cidade" size="40"/></label><br/>
+<label>Estado:
+<input name="uf" type="text" id="uf" size="2"/></label><br/>
+<label>IBGE:
+<input name="ibge" type="text" id="ibge" size="8"/></label><br/>
+</form>
+</body>
+</html>
